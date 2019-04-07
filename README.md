@@ -245,7 +245,7 @@ go语言中的每一个数组都有一个对应的“数组头”的数据结构
 
 【如图】
 
-![](H:\go-study\images\切片共享.png)
+![](https://github.com/xiao-ren-wu/go-study/blob/master/images/%E5%88%87%E7%89%87%E5%85%B1%E4%BA%AB.png)
 
 
 
