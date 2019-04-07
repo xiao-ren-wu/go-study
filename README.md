@@ -181,6 +181,131 @@ true
 0&^0--0
 ~~~
 
+### 数组和切片
+
+##### 声明数组
+
+- 关键字 数组名称 数组 ------>var arr [3]int
+- 也可以不指定数组的大小，通过初始化来指定数组的大小
+  - `arr3:=[...]int{1,2,3,4}`
+
+##### 数组的遍历
+
+- 传统的for循环
+
+  ~~~go
+  for i:=0;i<len(arr3);i++{
+  	t.Log(arr3[i])
+  }
+  ~~~
+
+- 使用关键字range
+
+  ~~~go
+  for idx,e:=range arr3{
+  	t.Log(idx,e)
+  }
+  ~~~
+
+  变量idx为数组下标，e为数组中下标为idx对应的值，如果不使用idx，可以使用‘_’替代。
+
+##### 截取指定区间的元素值   
+
+`a[开始索引（包含）:结束索引（不包含）]`
+
+如果取前n或者后n个元素，可以省略对应边界值
+
+~~~go
+arr3 := [...]int{1, 2, 3, 4}
+arr3Sec := arr3[:3]//获取前3各元素
+arr3Dec := arr3[2:]//获取数组下标从2往后所有的元素
+arr3All := arr3[:]//获取所有元素
+~~~
+
+#### 切片
+
+##### 声明切片
+
+~~~go
+var s0 []int //切片的声明不指定数组的长度	
+s1:=[...]int{1,2,3,4}
+~~~
+
+
+
+##### 内部结构
+
+![](H:\go-study\images\切片.png)
+
+go语言中的每一个数组都有一个对应的“数组头”的数据结构，类似redis中的SDS。
+
+“数组头”包含数组的元素个数以及数组的容量，当当前指针指向的数组的容量不能满足时，便会重新申请一块长度为原数组长度两倍的容量，并将原数组的内容拷贝到新数组中。
+
+当我们使用切片得到的新数组系统并不会给我们分配一块新的内存，只是给了我们数组指定地址的引用。所以如果一个数组有多个切片，更新其中一个数组的内容，其他的数组也会受影响。     
+
+【如图】
+
+![](H:\go-study\images\切片共享.png)
+
+
+
+#### 切片VS数组
+
+- 切片通过指针引用数组的形式，使得切片的长度可以伸缩
+- 数组之间可以进行比较，切片不能进行比较
+
+### Map
+
+#### 声明map
+
+```go
+m:=map[string]int{"one":1,"two":2,"three":3}
+m1:=map[string]int{}
+m2:=make(map[string]int,10)
+```
+
+在go语言中，获取通过key获取map中指定的value时，返回两个返回值，第一个为value,另一个为bool类型，如果key存在，返回true,如果key不存在返回false。
+
+在go语言中，如果访问的key不存在，go语言返回0,所以我们无法通过返回值是否为nil确定key是否存在。但是，我们可以通过获取key时返回的另一个返回值确定key是否存在。
+
+```go
+func TestKey(t *testing.T) {
+   m := map[int]int{}
+   if v, ok := m[23]; ok {
+      t.Log("Key is exist",v)
+   }else {
+      t.Log("Key is not exist")
+   }
+}
+```
+
+#### 遍历map
+
+```go
+func TestTravelMap(t *testing.T) {
+   m1:=map[int]int{1:2,2:3,4:6,5:6}
+   for k,v :=range m1{
+      t.Log(k,v)
+   }
+}
+```
+
+map的value还可以存储方法
+
+```go
+func TestMapWithFunValue(t *testing.T) {
+   m:=map[int]func(op int)int{}
+   m[1]= func(op int) int {
+      return op*op
+   }
+   t.Log(m[1](2))
+}
+```
+
+
+
+
+
 
 
 
