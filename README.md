@@ -302,6 +302,128 @@ func TestMapWithFunValue(t *testing.T) {
 }
 ```
 
+### 字符串
+
+1. string是数据类型，不是指针或者引用类型
+2. string是只读的byte slice,len函数可以包含它所包含的byte数
+3. string的byte数组可以存放任何数据
+
+eg:
+
+```go
+func TestString(t *testing.T){
+   var s string
+
+   t.Log(s)//初始化默认值为零值""
+
+   s="hello"
+
+   t.Log(len(s))
+
+   //s[1]='3' //string是不可以变类型的byte slice
+   s="\xE4\xB8\xA5" //可以存储任何二进制数据
+
+   t.Log(s)
+   s="中"
+   t.Log(len(s))//是byte数
+   //取出byte slice数组中的指定位置的元素
+   c:=[]rune(s)
+
+   t.Logf("中 unicode %x",c[0])
+   t.Logf("中 UTF8 %x",s)
+   
+}
+```
+
+### 函数
+
+**Go语言函数与其他语言的差异**
+
+1. 函数可以返回多个值
+2. 所有的参数都是值传递：slice,map,channel会引起传引用的错觉
+3. 函数可以作为变量的值
+4. 函数可以作为参数和返回值
+
+```go
+//定义有两个返回值的函数
+func returnMultiValues() (int, int) {
+   return rand.Intn(10), rand.Intn(20)
+}
+
+func TestFn(t *testing.T) {
+    //变量a,b分别用来接收返回值
+   a, b := returnMultiValues()
+   t.Log(a, b)
+    //如果想忽略第二个返回值，使用'_'替代即可
+   c,_:=returnMultiValues()
+   t.Log(c)
+}
+```
+
+#### 可变长参数
+
+```go
+func sum(ops ...int) int {
+   ret := 0
+   for _, op := range ops {
+      ret += op
+   }
+   return ret
+}
+
+func TestVarParam(t *testing.T) {
+   t.Log(sum(1,2,3,4,5))
+}
+```
+
+#### 延迟执行函数
+
+`defer`函数：在函数返回前执行，一般用于回收某些资源或者释放某些锁等。
+
+```go
+func Clear() {
+   fmt.Println("Clear resources ~")
+}
+func TestDefer(t *testing.T){
+   defer Clear()
+   fmt.Println("Start")
+}
+//输出
+//Start
+//Clear resources ~
+//--- FAIL: TestDefer (0.00s)
+//panic: err [recovered]
+//	panic: err
+```
+
+### 面向对象
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
