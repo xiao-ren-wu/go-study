@@ -396,7 +396,180 @@ func TestDefer(t *testing.T){
 //	panic: err
 ```
 
-### 面向对象
+### :man:面向对象
+
+####  属性定义
+
+go语言采用结构体来封装’属性‘
+
+~~~go
+type Emloyee struct {
+	Id   string
+	Name string
+	Age  int
+}
+~~~
+
+#### 行为定义
+
+~~~go
+//一般使用该种定义方式，采用指针的形式，不会复制变量，节约内存空间
+func (e *Emloyee) String() string {
+	return fmt.Sprintf("ID:%s/Name:%s/Age:%d",e.Id,e.Name,e.Age)
+}
+//该种方式会额外复制一次变量的值，造成内存浪费。不推荐使用
+func (e Emloyee) String() string {
+	return fmt.Sprintf("ID:%s/Name:%s/Age:%d", e.Id, e.Name, e.Age)
+}
+~~~
+
+#### 实例化’对象‘
+
+即实例化结构体
+
+~~~go
+func TestCreateEmployeeObj(t *testing.T) {
+    //1.按照结构体丁定义属性的顺序依次赋值
+	e := Emloyee{"0", "Bob", 20}
+    //通过制定属性的形式为结构体赋值
+	e1 := Emloyee{Name: "Mike", Age: 30}
+    //返回指针类型
+	e2 := new(Emloyee) 
+	e2.Id = "2"
+	e2.Name = "Rose"
+	e2.Age = 20
+	e.String()
+	t.Log(e)
+	t.Log(e1)
+	t.Log(e2.Name)
+}
+~~~
+
+#### 接口
+
+1. 接口定义
+
+~~~go
+type Programmer interface{
+    WriteHelloWorld() string
+}
+~~~
+
+2. 接口实现
+
+~~~go
+type GoProgrammer struct {
+}
+
+func (p *GoProgrammer) WriteHelloWorld() string {
+	return "fmt.Println(\"hello World\")"
+}
+~~~
+
+3. test
+
+~~~go
+func TestClient(t *testing.T) {
+	var p Programmer
+	p = new(GoProgrammer)
+	t.Log(p.WriteHelloWorld())
+}
+//out:
+//fmt.Println("hello World")
+~~~
+
+go语言并没有通过向java的关键字`implement`实现改接口，只是实现的函数和接口中的函数签名保持一致，就认为该接口中的方法被实现了，称为`Duck Type`
+
+#### 接口变量
+
+#### 自定义类型
+
+自定义类型感觉像C语言中的`#define`一样，可以简化程序的书写。
+
+eg:
+
+~~~go
+//将函数的签名进行替换
+type IntConv func(op int) int
+//通过使用自定义类型，简化函数的书写，在一定程度上也增加了程序的可读性
+func timeSpent(inner IntConv)IntConv{
+	return func(n int) int {
+		start:=time.Now()
+		ret:=inner(n)
+		fmt.Println("time spent:",time.Since(start).Seconds())
+		return ret
+	}
+}
+~~~
+
+#### ”多态“
+
+1. 先定一个父类：
+
+~~~go
+type Pet struct {
+}
+func (p *Pet) Speak() {
+	fmt.Println("...")
+}
+
+func (p *Pet) SpeakTo(host string) {
+	p.Speak()
+	fmt.Println(" ", host)
+}
+~~~
+
+2. 再定义一个子类：
+
+   该子类’假装继承‘了Pet父类，并重写了父类的Speak方法
+
+~~~go
+type Dog struct {
+	Pet
+}
+func (d *Dog) Speak() {
+	fmt.Println("Dog~")
+}
+~~~
+
+3. test
+
+~~~go
+func TestDog(t *testing.T) {
+	//1.go语言不支持显示的类型转换，强转试一下~
+	// var p *Pet:=(*Pet)new(Dog)//这里编译器会编译出错，555~ 强转也不行
+	dog := new(Dog)
+	dog.SpeakTo("Tea")
+}
+//out:
+//...
+//Tea
+~~~
+
+根据输出结果我们可以看出来，Go语言不支持函数重写，函数重写是无效的，不能向java一样“多态”，要想重写Pet中的方法，我们可以 使用“组合”的形式，将Pet作为Dog的成员，然后在Dog中重写Pet中的方法。
+
+eg:
+
+~~~go
+type Dog struct {
+	p *Pet
+}
+
+func (d *Dog) Speak() {
+	fmt.Println("Dog~")
+}
+
+func (d *Dog) SpeakTo(host string) {
+	d.Speak()
+	fmt.Println(" ", host)
+}
+~~~
+
+从上面的示例中可以看出，这个“多态”其实和java中的多态是不一样的，十分笨重。
+
+
+
+
 
 
 

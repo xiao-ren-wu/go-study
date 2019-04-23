@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="abae12e8-bb9d-4a56-8edc-52c39ff09ec5" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/day3/func_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/day3/string_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/interfaces/custom_type_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/interfaces/extends_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/interfaces/program_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/object/object_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/day2/set/set_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/day3/func_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/day3/func_test.go" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,29 +20,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="constant_try_test.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/day1/constant_test/constant_try_test.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="type_test.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/day1/type_test/type_test.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="operate_test.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/day1/operate_test/operate_test.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="286">
-              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
             </state>
           </provider>
         </entry>
@@ -54,50 +38,77 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="array_test.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/day2/array_test/array_test.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="slice_test.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/day2/slice_test/slice_test.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="map_test.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/day2/map_test/map_test.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="string_test.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/day3/string_test.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="4" selection-start-line="4" selection-end-line="26" />
+            <state relative-caret-position="198">
+              <caret line="9" column="13" lean-forward="true" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="func_test.go" pinned="false" current-in-tab="true">
+      <file leaf-file-name="func_test.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/day3/func_test.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="30" selection-start-line="30" selection-end-line="36" selection-end-column="1" />
+            <state relative-caret-position="154">
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
               <folding>
-                <element signature="e#21#55#0" expanded="true" />
+                <element signature="e#21#62#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="object_test.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/object/object_test.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="343">
+              <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+              <folding>
+                <element signature="e#21#49#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="program_test.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/interfaces/program_test.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="409">
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="custom_type_test.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/interfaces/custom_type_test.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="154">
+              <caret line="7" selection-start-line="7" selection-end-line="16" selection-end-column="1" />
+              <folding>
+                <element signature="e#20#45#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="extends_test.go" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/interfaces/extends_test.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1034">
+              <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+              <folding>
+                <element signature="e#25#53#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="builtin.go" pinned="false" current-in-tab="false">
+        <entry file="file://C:/Go/src/builtin/builtin.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="173">
+              <caret line="75" lean-forward="true" selection-start-line="75" selection-end-line="75" />
             </state>
           </provider>
         </entry>
@@ -105,8 +116,8 @@
       <file leaf-file-name="example_test.go" pinned="false" current-in-tab="false">
         <entry file="file://C:/Go/src/math/rand/example_test.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-462">
-              <caret line="6" column="7" lean-forward="true" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+            <state relative-caret-position="132">
+              <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
               <folding>
                 <element signature="e#179#244#0" expanded="true" />
               </folding>
@@ -151,6 +162,13 @@
         <option value="$PROJECT_DIR$/src/day2/set/set_test.go" />
         <option value="$PROJECT_DIR$/src/day3/string_test.go" />
         <option value="$PROJECT_DIR$/src/day3/func_test.go" />
+        <option value="$PROJECT_DIR$/src/object/object.go" />
+        <option value="$PROJECT_DIR$/src/object/object_test.go" />
+        <option value="$PROJECT_DIR$/src/interfaces/program.go" />
+        <option value="$PROJECT_DIR$/src/interfaces/program_test.go" />
+        <option value="$PROJECT_DIR$/src/interfaces/custom_type_test.go" />
+        <option value="$PROJECT_DIR$/src/interfaces/extends.go" />
+        <option value="$PROJECT_DIR$/src/interfaces/extends_test.go" />
       </list>
     </option>
   </component>
@@ -173,7 +191,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -194,6 +211,18 @@
             </path>
             <path>
               <item name="go-study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="go-study" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="interfaces" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="go-study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="go-study" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="object" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="go-study" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
             <path>
@@ -205,8 +234,9 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -234,59 +264,57 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Test.TestDefer in func_test.go">
+  <component name="RunManager" selected="Go Test.TestDog in extends_test.go">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
-    <configuration name="TestDefer in func_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="go build object.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="go-study" />
-      <working_directory value="$PROJECT_DIR$/src/day3" />
+      <working_directory value="$PROJECT_DIR$" />
       <go_parameters value="-i" />
-      <framework value="gotest" />
       <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/src/object/object.go" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/src/day3/func_test.go" />
-      <pattern value="^TestDefer$" />
     </configuration>
-    <configuration name="TestFn in func_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestClient in program_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="go-study" />
-      <working_directory value="$PROJECT_DIR$/src/day3" />
+      <working_directory value="$PROJECT_DIR$/src/interfaces" />
       <go_parameters value="-i" />
       <framework value="gotest" />
       <kind value="FILE" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/src/day3/func_test.go" />
-      <pattern value="^TestFn$" />
+      <filePath value="$PROJECT_DIR$/src/interfaces/program_test.go" />
+      <pattern value="^TestClient$" />
     </configuration>
-    <configuration name="TestMapWithFunValue in map_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestCreateEmployeeObj in object_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="go-study" />
-      <working_directory value="$PROJECT_DIR$/src/day2/map_test" />
+      <working_directory value="$PROJECT_DIR$/src/object" />
       <go_parameters value="-i" />
       <framework value="gotest" />
       <kind value="FILE" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/src/day2/map_test/map_test.go" />
-      <pattern value="^TestMapWithFunValue$" />
+      <filePath value="$PROJECT_DIR$/src/object/object_test.go" />
+      <pattern value="^TestCreateEmployeeObj$" />
     </configuration>
-    <configuration name="TestString in string_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestDog in extends_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="go-study" />
-      <working_directory value="$PROJECT_DIR$/src/day3" />
+      <working_directory value="$PROJECT_DIR$/src/interfaces" />
       <go_parameters value="-i" />
       <framework value="gotest" />
       <kind value="FILE" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/src/day3/string_test.go" />
-      <pattern value="^TestString$" />
+      <filePath value="$PROJECT_DIR$/src/interfaces/extends_test.go" />
+      <pattern value="^TestDog$" />
     </configuration>
-    <configuration name="TestVarParam in func_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestStructOperations in object_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="go-study" />
-      <working_directory value="$PROJECT_DIR$/src/day3" />
+      <working_directory value="$PROJECT_DIR$/src/object" />
       <go_parameters value="-i" />
       <framework value="gotest" />
       <kind value="FILE" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/src/day3/func_test.go" />
-      <pattern value="^TestVarParam$" />
+      <filePath value="$PROJECT_DIR$/src/object/object_test.go" />
+      <pattern value="^TestStructOperations$" />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -327,19 +355,19 @@
       <listeners />
     </configuration>
     <list>
-      <item itemvalue="Go Test.TestMapWithFunValue in map_test.go" />
-      <item itemvalue="Go Test.TestString in string_test.go" />
-      <item itemvalue="Go Test.TestFn in func_test.go" />
-      <item itemvalue="Go Test.TestVarParam in func_test.go" />
-      <item itemvalue="Go Test.TestDefer in func_test.go" />
+      <item itemvalue="Go Build.go build object.go" />
+      <item itemvalue="Go Test.TestCreateEmployeeObj in object_test.go" />
+      <item itemvalue="Go Test.TestStructOperations in object_test.go" />
+      <item itemvalue="Go Test.TestClient in program_test.go" />
+      <item itemvalue="Go Test.TestDog in extends_test.go" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Test.TestDefer in func_test.go" />
-        <item itemvalue="Go Test.TestVarParam in func_test.go" />
-        <item itemvalue="Go Test.TestFn in func_test.go" />
-        <item itemvalue="Go Test.TestString in string_test.go" />
-        <item itemvalue="Go Test.TestMapWithFunValue in map_test.go" />
+        <item itemvalue="Go Test.TestDog in extends_test.go" />
+        <item itemvalue="Go Test.TestClient in program_test.go" />
+        <item itemvalue="Go Test.TestStructOperations in object_test.go" />
+        <item itemvalue="Go Test.TestCreateEmployeeObj in object_test.go" />
+        <item itemvalue="Go Build.go build object.go" />
       </list>
     </recent_temporary>
   </component>
@@ -355,44 +383,45 @@
       <updated>1554509502224</updated>
       <workItem from="1554509509350" duration="6273000" />
       <workItem from="1554602321879" duration="7214000" />
-      <workItem from="1554762821887" duration="2881000" />
+      <workItem from="1554762821887" duration="3388000" />
+      <workItem from="1555982156804" duration="8510000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestMap_in_map_test_go - 2019.04.07 at 12h 59m 05s.xml">
-      <configuration name="TestMap in map_test.go" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestCreateEmployeeObj_in_object_test_go - 2019.04.23 at 10h 16m 54s.xml">
+      <configuration name="TestCreateEmployeeObj in object_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestKey_in_map_test_go - 2019.04.07 at 13h 11m 54s.xml">
-      <configuration name="TestKey in map_test.go" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestCreateEmployeeObj_in_object_test_go - 2019.04.23 at 10h 19m 33s.xml">
+      <configuration name="TestCreateEmployeeObj in object_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestTravelMap_in_map_test_go - 2019.04.07 at 13h 16m 21s.xml">
-      <configuration name="TestTravelMap in map_test.go" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestStructOperations_in_object_test_go - 2019.04.23 at 10h 26m 34s.xml">
+      <configuration name="TestStructOperations in object_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestMapWithFunValue_in_map_test_go - 2019.04.07 at 13h 25m 22s.xml">
-      <configuration name="TestMapWithFunValue in map_test.go" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestStructOperations_in_object_test_go - 2019.04.23 at 10h 26m 59s.xml">
+      <configuration name="TestStructOperations in object_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestString_in_string_test_go - 2019.04.09 at 06h 41m 41s.xml">
-      <configuration name="TestString in string_test.go" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestStructOperations_in_object_test_go - 2019.04.23 at 10h 27m 33s.xml">
+      <configuration name="TestStructOperations in object_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestFn_in_func_test_go - 2019.04.09 at 07h 02m 14s.xml">
-      <configuration name="TestFn in func_test.go" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestClient_in_program_test_go - 2019.04.23 at 17h 11m 45s.xml">
+      <configuration name="TestClient in program_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestFn_in_func_test_go - 2019.04.09 at 07h 02m 31s.xml">
-      <configuration name="TestFn in func_test.go" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestDog_in_extends_test_go - 2019.04.23 at 17h 39m 42s.xml">
+      <configuration name="TestDog in extends_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestFn_in_func_test_go - 2019.04.09 at 07h 03m 16s.xml">
-      <configuration name="TestFn in func_test.go" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestDog_in_extends_test_go - 2019.04.23 at 17h 41m 51s.xml">
+      <configuration name="TestDog in extends_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestVarParam_in_func_test_go - 2019.04.09 at 07h 17m 24s.xml">
-      <configuration name="TestVarParam in func_test.go" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestDog_in_extends_test_go - 2019.04.23 at 17h 43m 38s.xml">
+      <configuration name="TestDog in extends_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestDefer_in_func_test_go - 2019.04.09 at 07h 21m 50s.xml">
-      <configuration name="TestDefer in func_test.go" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestDog_in_extends_test_go - 2019.04.23 at 17h 44m 28s.xml">
+      <configuration name="TestDog in extends_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16368000" />
+    <option name="totallyTimeSpent" value="25385000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="0" width="974" height="1047" extended-state="0" />
@@ -407,11 +436,11 @@
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.40528634" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.30506608" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.49229074" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20897156" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15536106" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -433,7 +462,88 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/day1/constant_test/constant_try_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/day1/type_test/type_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/day1/operate_test/operate_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/day1/map_test/map_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/day2/array_test/array_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/day2/slice_test/slice_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/day2/map_test/map_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/day3/string_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" selection-start-line="4" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go/src/math/rand/example_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="7" lean-forward="true" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+          <folding>
+            <element signature="e#179#244#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/day3/func_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="704">
+          <caret line="36" column="14" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
+          <folding>
+            <element signature="e#21#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/day1/test/first_test.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -497,13 +607,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/day2/set/set_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/day2/set/set_test.go" />
     <entry file="file://$PROJECT_DIR$/src/main/helloWorld.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -610,17 +714,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/day2/map_test/set_test.go" />
-    <entry file="file://$PROJECT_DIR$/src/day2/set/set_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/day2/set/set_test.go" />
     <entry file="file://$PROJECT_DIR$/src/day2/map_test/map_test.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="594">
-          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
         </state>
       </provider>
     </entry>
@@ -631,17 +729,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Go/src/builtin/builtin.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1198">
-          <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/day1/operate_test/operate_test.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
@@ -652,17 +743,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/day3/string_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" selection-start-line="4" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Go/src/math/rand/example_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-462">
-          <caret line="6" column="7" lean-forward="true" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+        <state relative-caret-position="132">
+          <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
           <folding>
             <element signature="e#179#244#0" expanded="true" />
           </folding>
@@ -671,10 +755,61 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/day3/func_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="30" selection-start-line="30" selection-end-line="36" selection-end-column="1" />
+        <state relative-caret-position="154">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
           <folding>
-            <element signature="e#21#55#0" expanded="true" />
+            <element signature="e#21#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/day3/string_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="13" lean-forward="true" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/object/object_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+          <folding>
+            <element signature="e#21#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/interfaces/program_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go/src/builtin/builtin.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="75" lean-forward="true" selection-start-line="75" selection-end-line="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/interfaces/custom_type_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" selection-start-line="7" selection-end-line="16" selection-end-column="1" />
+          <folding>
+            <element signature="e#20#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/interfaces/extends_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1034">
+          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+          <folding>
+            <element signature="e#25#53#0" expanded="true" />
           </folding>
         </state>
       </provider>
