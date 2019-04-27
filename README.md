@@ -734,7 +734,7 @@ PASS
 
 1. java线程机制
 
-![](H:\go-study\images\java线程.png)
+![](https://github.com/xiao-ren-wu/go-study/blob/master/images/java%E7%BA%BF%E7%A8%8B.png)
 
 java线程和内核线程一一对应，效率很高，但是如果频繁的进行线程的切换也会导致内核线程的切换造成较大的系统消耗。
 
@@ -824,7 +824,7 @@ func TestCounterThreadSafe(t *testing.T) {
 }
 ```
 
-看着加锁和释放锁的部分可能有点难受~~~，我也难受，但是go语言的机制确实可以这样写:happy:
+看着加锁和释放锁的部分可能有点难受~，我也难受，但是go语言的机制确实可以这样写:happy:
 
 #### WaitGroup
 
