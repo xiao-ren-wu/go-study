@@ -567,27 +567,313 @@ func (d *Dog) SpeakTo(host string) {
 
 从上面的示例中可以看出，这个“多态”其实和java中的多态是不一样的，十分笨重。
 
+### :shark:错误处理
 
+#### 1. error接口
 
+1. 没有异常机制
+2. error类型实现了error接口
+3. 可以通过error.New来快速创建错误实例
 
+~~~go
+type error interface{
+    Error() string
+}
+~~~
 
+eg:
 
+~~~go
+func getError() error {
+	return errors.New("I am a error ")
+}
+~~~
 
+#### 2. panic
 
+- panic 用于不可恢复的错误
+- panic推出前会执行defer指定的内容
 
+#### os.Exit与panic的区别：
 
+1. os.Exit退出不会调用defer指定的函数
+2. os.Exit退出时不会输出当前调用栈信息
 
+```go
+func TestPanicVsExit(t *testing.T){
 
+   defer func() {
+      fmt.Println("Finally")
+   }()
 
+   fmt.Println("Start")
 
+   panic(errors.New("Something wrong !"))
 
+   //os.Exit(-1)
 
+}
+```
 
+out:
 
+1. 使用panic会打印堆栈信息,并且会执行defer函数
 
+~~~
+=== RUN   TestPanicVsExit
+Start
+Finally
+--- FAIL: TestPanicVsExit (0.00s)
+panic: Something wrong ! [recovered]
+	panic: Something wrong !
 
+goroutine 20 [running]:
+testing.tRunner.func1(0xc0000b0200)
+	C:/Go/src/testing/testing.go:830 +0x399
+panic(0x521960, 0xc000042530)
+	C:/Go/src/runtime/panic.go:522 +0x1c3
+command-line-arguments.TestPanicVsExit(0xc0000b0200)
+	H:/go-study/src/error/error_test.go:27 +0x107
+testing.tRunner(0xc0000b0200, 0x554728)
+	C:/Go/src/testing/testing.go:865 +0xc7
+created by testing.(*T).Run
+	C:/Go/src/testing/testing.go:916 +0x361
+~~~
 
+2. 使用os.Exit，程序正常退出，并不会执行defer函数
 
+~~~
+=== RUN   TestPanicVsExit
+Start
+~~~
+
+#### 3. recover错误恢复机制
+
+返回panic传递的异常信息。
+
+```go
+func TestRecover(t *testing.T){
+   defer func() {
+      if err := recover(); err!=nil{
+         fmt.Println("recover from ",err)
+      }
+   }()
+
+   fmt.Println("Start")
+   panic(errors.New("Something wrong !"))
+}
+```
+
+out:
+
+~~~
+=== RUN   TestRecover
+Start
+recover from  Something wrong !
+--- PASS: TestRecover (0.00s)
+PASS
+~~~
+
+### :m:项目管理
+
+#### package
+
+1. 基本复用模块（以首字母大写来表明可被包外代码访问）
+2. 代码的package可以和所在的目录保持不一致
+3. 同一目录里的Go代码的package要保持一致
+
+##### init
+
+1. 在main函数被执行前，所有依赖的package的init方法都会被执行
+2. 不同包的init函数按照导入包的依赖关系决定执行顺序
+3. 不同包可以有多个init函数
+4. 包的每个源文件也可以有多个init函数，这点比较特殊
+
+#### 调用远程go程序
+
+1. 通过go get 来获取远程依赖
+   1. go get -u 强制从网络更新远程依赖
+2. 注意代码在Github 上不要有组织形式，以适应go get
+   1. 直接以代码路径开始不要有src
+
+#### Go未解决的依赖问题
+
+1. 同意环境下，不同项目使用的同一包的不同保本
+2. 无法管理对包的特定版本的依赖
+
+#### verder路径
+
+`Go 1.5release`版本发布，vender目录被添加到GOPATH和GOROOT之外的依赖目录查找解决方案。在Go1.6之前需要手动设置环境变量。
+
+**查找依赖包路径的解决方案如下：**
+
+1. 当前包下的wender目录
+2. 向上级目录查找，直到找到src的vender目录
+3. 在GOPATH下面查找依赖包
+4. 在GOROOT目录下查找
+
+#####  常用的依赖管理工具
+
+- **godep**:https://github.com//tools/godep
+- **glide**:https://github.com/Masterminds/glide
+- **dep**:https://github.com/golang/dep
+
+## :dog:协程
+
+#### **java线程和协程比较**
+
+1. java创建一个线程默认的Stack size = 1MB
+
+   Groutine的Stack size = 2 K
+
+2. KSE对应关系
+
+   java Thread 和系统线程比是1：1
+
+   Groutine 是M:N
+
+1. java线程机制
+
+![](H:\go-study\images\java线程.png)
+
+java线程和内核线程一一对应，效率很高，但是如果频繁的进行线程的切换也会导致内核线程的切换造成较大的系统消耗。
+
+2. 协程机制：
+
+![](H:\go-study\images\协程.png)
+
+1. 一个系统线程对应一个处理器processor,每个处理器后面跟着一个协程队列，
+
+2. processor依次运行队列中的协程，
+3. 在启动程序的时候，会开启一个守护线程用来计算每个processor完成的协程数量。如果一段时间后，某个processor完成的协程数量没有发生变化，守护线程会在协程的任务栈中插入一个特殊的标记，当协程读到这个标记的时候，就会中断自己，并查到该队列的队尾，切换成别的协程进一步继续运行。
+4. 当某一个协程被系统中断了，processor会将自己移到另一个可运行的系统线程中，继续执行队列中其他的协程，当中断的协程别唤醒之后，自己会加入到processor等待队列中。当协程被中断的时候，中断现场会被保存到当前协程的对象中，保证协程唤醒后正常继续运行。
+
+#### 编程实现
+
+```go
+func TestGroutine(t *testing.T){
+   for i:=0;i<10;i++{
+      go func(i int) {
+         fmt.Println(i)
+      }(i)
+   }
+}
+```
+
+out:
+
+~~~
+=== RUN   TestGroutine
+2
+1
+9
+3
+4
+5
+6
+7
+8
+0
+--- PASS: TestGroutine (0.00s)
+~~~
+
+### 并发控制
+
+```go
+func TestCounter(t *testing.T) {
+   counter := 0
+   for i := 0; i < 5000; i++ {
+      go func() {
+         counter++
+      }()
+   }
+   time.Sleep(1 * time.Second)
+   t.Logf("counter = %d", counter)
+}
+```
+
+out:
+
+~~~
+groutine_test.go:25: counter = 4712
+~~~
+
+上一个例子中，系统会开启5000个协程，完成对counter计数，因为没用考虑并发安全机制，导致计算的结果和预想的不一致。
+
+**解决方案 **
+
+使用sync.Mutex{} 的Lock()和UnLock()方法
+
+```
+func TestCounterThreadSafe(t *testing.T) {
+   mut:=sync.Mutex{}
+   counter := 0
+   for i := 0; i < 5000; i++ {
+      go func() {
+         defer func() {
+            mut.Unlock()
+         }()
+         mut.Lock()
+         counter++
+      }()
+   }
+   //让外面的代码执行的速度慢一点，因为如果外面的代码执行完后，可能协程还没有执行完，导致
+   //结果和预想的不一致，程序出现问题
+   time.Sleep(1 * time.Second)
+   t.Logf("counter = %d", counter)
+}
+```
+
+看着加锁和释放锁的部分可能有点难受~~~，我也难受，但是go语言的机制确实可以这样写:happy:
+
+#### WaitGroup
+
+解决外部执行时间和协程执行时间不一致的问题
+
+```go
+func TestCounterThreadSafeWithWaitGroup(t *testing.T) {
+   mut:=sync.Mutex{}
+   wg:=sync.WaitGroup{}
+   counter := 0
+   for i := 0; i < 5000; i++ {
+      wg.Add(1)
+      go func() {
+         defer func() {
+            mut.Unlock()
+         }()
+         mut.Lock()
+         counter++
+         wg.Done()
+      }()
+   }
+   //等待协程执行完，程序才退出
+   wg.Wait()
+   t.Logf("counter = %d", counter)
+}
+```
+
+### CSP并发机制
+
+Communicating sequential processes
+
+依赖通道完成两个通信实体之间的通信。
+
+CSP vs Actor
+
+- 和Actor的直接通讯不同，CSP模式则是通过Channel进行通讯的，更松耦合一些
+- Go中的channel是有容量限制的并且独立于处理Groutine,而如Erlang,Actor模式中的mailbox容量是无限的，接收进程也总是被动的处理消息。
+
+#### Channel
+
+同步channel，会阻塞等待结果的协程。
+
+异步channel，不会阻塞等待结果的协程。
+
+**声明方式：**
+
+同步：`retch:=make(chan string)`声明一个string类型的同步channel
+
+异步：`retch:=make(chan string,1)`声明一个string类型的异步channel，并指定容量大小为1
 
 
 
