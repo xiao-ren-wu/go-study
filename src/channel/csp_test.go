@@ -3,6 +3,7 @@ package csp_test
 import (
 	"time"
 	"fmt"
+	"testing"
 )
 
 func service() string {
@@ -33,8 +34,8 @@ func otherTask(){
 //	otherTask()
 //}
 //
-//func TestAsyncService(t *testing.T){
-//	reCh:=AsyncService()
-//	otherTask()
-//	fmt.Println(<-reCh)
-//}
+func TestAsyncService(t *testing.T){
+	reCh:=AsyncService()
+	otherTask()
+	fmt.Println(<-reCh)
+}

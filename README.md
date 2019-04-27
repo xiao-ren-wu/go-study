@@ -875,17 +875,144 @@ CSP vs Actor
 
 异步：`retch:=make(chan string,1)`声明一个string类型的异步channel，并指定容量大小为1
 
+```go
+func service() string {
+   time.Sleep(time.Millisecond*500)
+   return "Done"
+}
+
+func AsyncService() chan string{
+   retCh:=make(chan string,1)
+
+   go func() {
+      ret:=service()
+      fmt.Println("returned result.")
+      retCh<-ret
+      fmt.Println("service exited.")
+   }()
+   return retCh
+}
+
+func otherTask(){
+   fmt.Println("working on something else")
+   time.Sleep(time.Millisecond*1000)
+   fmt.Println("Task is done.")
+}
+func TestAsyncService(t *testing.T){
+   reCh:=AsyncService()
+   otherTask()
+   fmt.Println(<-reCh)
+}
+```
+
+out:
+
+~~~
+=== RUN   TestAsyncService
+working on something else
+returned result.
+service exited.
+Task is done.
+Done
+--- PASS: TestAsyncService (1.00s)
+PASS
+~~~
+
+#### 多路选择select
+
+1. 多渠道的选择
+
+~~~go
+select{
+    case ret:=<-retch1:
+    	t.Log("retch1")
+    case ret:=<-retch2:
+    	t.Log("retch2")
+    default:
+    	t.Error("No one returned")
+}
+~~~
+
+2. 超时控制
+
+~~~go
+select{
+    case ret:=<-retch:
+    	t.Log("retch1")
+    case <-time.After(time.Second*1)
+    	t.Error("time out")
+}
+~~~
 
 
 
+#### channel广播&关闭
+
+如果一个协程向通道中写数据，有多个协程从通道中获取数据，那么消费的协程怎么知道什么时候生产数据的协程生产完毕了呢？
+
+答：使用close函数关闭协程。
+
+1. 向关闭的channel发送数据，会导致panic
+2. v，ok<-ch;ok为bool值，true表示正常接收，false表示通道关闭
+3. 所有的channel接受者都会在channel关闭时，立刻从阻塞等待中返回上述OK值为false。
+
+这个广播机制常被利用，进行向多个订阅者发送信号，如：退出信号。
+
+~~~go
+func dataProducer(ch chan int, wg *sync.WaitGroup) {
+	go func() {
+		for i := 0; i < 10; i++ {
+			ch <- i
+		}
+		close(ch)
+		wg.Done()
+	}()
+}
 
 
 
+func dataReceiver(ch chan int, wg *sync.WaitGroup) {
+	go func() {
+		for {
+			if data, ok := <-ch; ok {
+				fmt.Println(data)
+			}else {
+				break
+			}
+		}
+		wg.Done()
+	}()
+}
+func TestCloseChannel(t *testing.T) {
+	var wg sync.WaitGroup
+	ch:=make(chan int)
+	wg.Add(1)
+	dataProducer(ch,&wg)
+	wg.Add(1)
+	dataReceiver(ch,&wg)
+	wg.Add(1)
+	dataReceiver(ch,&wg)
+	wg.Wait()
+}
+~~~
 
+out:
 
-
-
-
+~~~go
+=== RUN   TestCloseChannel
+1
+0
+3
+4
+5
+6
+7
+8
+9
+2
+--- PASS: TestCloseChannel (0.00s)
+PASS
+~~~
 
 
 
