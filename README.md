@@ -968,9 +968,6 @@ func dataProducer(ch chan int, wg *sync.WaitGroup) {
 		wg.Done()
 	}()
 }
-
-
-
 func dataReceiver(ch chan int, wg *sync.WaitGroup) {
 	go func() {
 		for {
@@ -998,7 +995,7 @@ func TestCloseChannel(t *testing.T) {
 
 out:
 
-~~~go
+~~~
 === RUN   TestCloseChannel
 1
 0
@@ -1014,17 +1011,167 @@ out:
 PASS
 ~~~
 
+#### 上下文任务取消
+
+Context
+
+1. 根Context：通过context.Background()创建
+2. 子Context：context.WithCancel(parentContext)创建
+   1. ctx,cancel:=context.WithCancel(context.BackGround())
+3. 当前Context被取消时，基于他的子context都会被取消
+4. 接收取消通知<-ctx.Done()
+
+```go
+func isCancelled(ctx context.Context) bool {
+   select {
+   case <-ctx.Done():
+      return true
+   default:
+      return false
+   }
+}
+
+func TestCancel(t *testing.T) {
+   ctx,cancel :=context.WithCancel(context.Background())
+   for i := 0; i < 5; i++ {
+      go func(i int, ctx context.Context) {
+         for {
+            if isCancelled(ctx) {
+               break
+            }
+            time.Sleep(time.Millisecond * 5)
+         }
+         fmt.Println(i, "Canceled")
+      }(i, ctx)
+   }
+   cancel()
+   time.Sleep(time.Second * 1)
+}
+```
+
+### 只执行一次的代码
+
+使用`sync.Once`中的`Do`方法
+
+可以使用该方法构造单例模式
+
+```go
+type Singleton struct {
+
+}
+
+var singleInstance *Singleton
+
+var once sync.Once
+
+func GetSingletonObj() *Singleton {
+   once.Do(func() {
+      fmt.Println("create a Obj")
+      singleInstance = new (Singleton)
+   })
+   return singleInstance
+}
+
+func CreateSingletonObj() *Singleton {
+   return GetSingletonObj()
+}
+
+func TestCreateSingletonObj(t *testing.T){
+   var wg sync.WaitGroup
+   for i:=0;i<10;i++{
+      wg.Add(1)
+      go func() {
+         obj:=CreateSingletonObj()
+         fmt.Printf("%d\n",unsafe.Pointer(obj))
+         wg.Done()
+      }()
+   }
+   wg.Wait()
+}
+```
+
+### :o:利用通道构建对象池
+
+```go
+type ReusableObj struct {
+}
+
+type ObjPool struct {
+   bufChan chan *ReusableObj
+}
+
+func NewObjPool(numberOfObj int) *ObjPool {
+   ObjPool := ObjPool{}
+   ObjPool.bufChan = make(chan *ReusableObj, numberOfObj)
+   for i := 0; i < numberOfObj; i++ {
+      ObjPool.bufChan <- &ReusableObj{}
+   }
+   return &ObjPool
+}
+
+func (p *ObjPool) GetObj(timeout time.Duration) (*ReusableObj, error) {
+   select {
+   case ret := <-p.bufChan:
+      return ret, nil
+   case <-time.After(timeout):
+      return nil, errors.New("timeout")
+   }
+}
+
+func (p *ObjPool) ReleaseObj(obj *ReusableObj) error {
+   select {
+   case p.bufChan <- obj:
+      return nil
+   default:
+      return errors.New("overflow")
+   }
+}
 
 
+func TestObjPool(t *testing.T){
+   pool:=NewObjPool(10)
+   for i:=0;i<11;i++{
+      if v,err:=pool.GetObj(time.Second*1); err!=nil{
+         t.Error(err)
+      }else{
+         fmt.Printf("%T\n",v)
+      }
+   }
+}
+```
 
+#### sync.Pool对象缓存
 
+![](H:\go-study\images\objPool.png)
 
+1. 尝试从私有对象获取
+2. 私有对象不存在，尝试从当前Processor共享池获取
+3. 如果当前Processor共享池也是空的，那么就尝试去其他Processor的共享池获取
+4. 如果所有子池都是空的，最后就用用户指定的New函数产生一个新的对象返回。
 
+5. 如果私有对象不存在则保存为私有对象
+6. 如果私有对象存在，放入当前Processor子池的共享池中。
 
+##### sync.Pool对象生命周期
 
+1. GC会清除sync.pool缓存的对象
+2. 对象的缓存有效期为下一次GC之前
 
-
-
+```go
+func TestSyncPool(t *testing.T){
+   pool:=&sync.Pool{
+      New: func() interface{} {
+         fmt.Println("Create a new object.")
+         return 100
+      },
+   }
+   v:=pool.Get().(int)
+   fmt.Println(v)
+   pool.Put(3)
+   v1,_:=pool.Get().(int)
+   fmt.Println(v1)
+}
+```
 
 
 
