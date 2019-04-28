@@ -1142,7 +1142,7 @@ func TestObjPool(t *testing.T){
 
 #### sync.Pool对象缓存
 
-![](H:\go-study\images\objPool.png)
+![](https://github.com/xiao-ren-wu/go-study/blob/master/images/objPool.png)
 
 1. 尝试从私有对象获取
 2. 私有对象不存在，尝试从当前Processor共享池获取
