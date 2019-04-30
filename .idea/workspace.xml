@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="abae12e8-bb9d-4a56-8edc-52c39ff09ec5" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/cann/cancel_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/channel/any_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/object_pool/object_pool_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/object_pool/sync_pool_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/singleton/singleton_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/http/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/reflect/reflect_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
@@ -20,24 +17,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="service.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/service/service.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="service_test.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/service_test.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="groutine_test.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/groutine/groutine_test.go">
           <provider selected="true" editor-type-id="text-editor">
@@ -62,7 +41,7 @@
       <file leaf-file-name="channel_cloese_test.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/channel/channel_cloese_test.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
+            <state relative-caret-position="264">
               <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
             </state>
           </provider>
@@ -71,11 +50,8 @@
       <file leaf-file-name="cancel_test.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cann/cancel_test.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="685">
-              <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
-              <folding>
-                <element signature="e#17#46#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="660">
+              <caret line="35" selection-start-line="35" selection-end-line="35" />
             </state>
           </provider>
         </entry>
@@ -83,11 +59,8 @@
       <file leaf-file-name="singleton_test.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/singleton/singleton_test.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="482">
-              <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
-              <folding>
-                <element signature="e#25#50#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="792">
+              <caret line="41" selection-start-line="41" selection-end-line="41" />
             </state>
           </provider>
         </entry>
@@ -95,11 +68,8 @@
       <file leaf-file-name="any_test.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/channel/any_test.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
+            <state relative-caret-position="594">
               <caret line="32" selection-start-line="32" selection-end-line="32" />
-              <folding>
-                <element signature="e#18#43#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -107,22 +77,37 @@
       <file leaf-file-name="object_pool_test.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/object_pool/object_pool_test.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
-              <folding>
-                <element signature="e#21#49#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="418">
+              <caret line="24" selection-start-line="24" selection-end-line="24" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sync_pool_test.go" pinned="false" current-in-tab="true">
+      <file leaf-file-name="sync_pool_test.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/object_pool/sync_pool_test.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="598">
-              <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+            <state relative-caret-position="858">
+              <caret line="43" selection-start-line="43" selection-end-line="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="reflect_test.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/reflect/reflect_test.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="484">
+              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.go" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/http/main.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="10" column="44" lean-forward="true" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
               <folding>
-                <element signature="e#26#55#0" expanded="true" />
+                <element signature="e#14#43#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -184,6 +169,8 @@
         <option value="$PROJECT_DIR$/src/object_pool/object_pool.go" />
         <option value="$PROJECT_DIR$/src/object_pool/object_pool_test.go" />
         <option value="$PROJECT_DIR$/src/object_pool/sync_pool_test.go" />
+        <option value="$PROJECT_DIR$/src/reflect/reflect_test.go" />
+        <option value="$PROJECT_DIR$/src/http/main.go" />
       </list>
     </option>
   </component>
@@ -231,7 +218,19 @@
               <item name="go-study" type="b2602c69:ProjectViewProjectNode" />
               <item name="go-study" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="http" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="go-study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="go-study" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="object_pool" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="go-study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="go-study" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="reflect" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="go-study" type="b2602c69:ProjectViewProjectNode" />
@@ -277,19 +276,17 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Test.TestSyncPoolMultiGroutine in sync_pool_test.go">
+  <component name="RunManager" selected="Go Build.go build main.go">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
-    <configuration name="TestCreateSingletonObj in singleton_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="go-study" />
-      <working_directory value="$PROJECT_DIR$/src/singleton" />
+      <working_directory value="$PROJECT_DIR$" />
       <go_parameters value="-i" />
-      <framework value="gotest" />
       <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/src/http/main.go" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/src/singleton/singleton_test.go" />
-      <pattern value="^TestCreateSingletonObj$" />
     </configuration>
     <configuration name="TestFirstResponse in any_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="go-study" />
@@ -370,19 +367,19 @@
       <listeners />
     </configuration>
     <list>
-      <item itemvalue="Go Test.TestCreateSingletonObj in singleton_test.go" />
       <item itemvalue="Go Test.TestFirstResponse in any_test.go" />
       <item itemvalue="Go Test.TestObjPool in object_pool_test.go" />
       <item itemvalue="Go Test.TestSyncPool in sync_pool_test.go" />
       <item itemvalue="Go Test.TestSyncPoolMultiGroutine in sync_pool_test.go" />
+      <item itemvalue="Go Build.go build main.go" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build main.go" />
         <item itemvalue="Go Test.TestSyncPoolMultiGroutine in sync_pool_test.go" />
         <item itemvalue="Go Test.TestSyncPool in sync_pool_test.go" />
         <item itemvalue="Go Test.TestObjPool in object_pool_test.go" />
         <item itemvalue="Go Test.TestFirstResponse in any_test.go" />
-        <item itemvalue="Go Test.TestCreateSingletonObj in singleton_test.go" />
       </list>
     </recent_temporary>
   </component>
@@ -406,7 +403,9 @@
       <workItem from="1556331570820" duration="266000" />
       <workItem from="1556331868187" duration="8098000" />
       <workItem from="1556369970258" duration="1322000" />
-      <workItem from="1556438654989" duration="11662000" />
+      <workItem from="1556438654989" duration="11926000" />
+      <workItem from="1556501245092" duration="1407000" />
+      <workItem from="1556595576784" duration="2083000" />
     </task>
     <servers />
   </component>
@@ -443,7 +442,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52484000" />
+    <option name="totallyTimeSpent" value="56238000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="0" width="974" height="1047" extended-state="0" />
@@ -458,11 +457,11 @@
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.16519824" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4955947" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.49229074" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.30306345" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16849016" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -486,24 +485,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/day1/constant_test/constant_try_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/day1/type_test/type_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/day1/operate_test/operate_test.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
@@ -714,9 +699,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
           <caret line="7" selection-start-line="7" selection-end-line="16" selection-end-column="1" />
-          <folding>
-            <element signature="e#20#45#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -724,9 +706,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="968">
           <caret line="47" selection-start-line="47" selection-end-line="47" />
-          <folding>
-            <element signature="e#25#53#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -748,9 +727,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="726">
           <caret line="36" selection-start-line="36" selection-end-line="36" />
-          <folding>
-            <element signature="e#21#49#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -787,57 +763,59 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/channel/channel_cloese_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
+        <state relative-caret-position="264">
           <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cann/cancel_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="685">
-          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
-          <folding>
-            <element signature="e#17#46#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="660">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/singleton/singleton_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="482">
-          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
-          <folding>
-            <element signature="e#25#50#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="792">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/channel/any_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
+        <state relative-caret-position="594">
           <caret line="32" selection-start-line="32" selection-end-line="32" />
-          <folding>
-            <element signature="e#18#43#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/object_pool/object_pool_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
-          <folding>
-            <element signature="e#21#49#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="418">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/object_pool/sync_pool_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+        <state relative-caret-position="858">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reflect/reflect_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/http/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="44" lean-forward="true" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
           <folding>
-            <element signature="e#26#55#0" expanded="true" />
+            <element signature="e#14#43#0" expanded="true" />
           </folding>
         </state>
       </provider>
